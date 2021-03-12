@@ -43,7 +43,30 @@ namespace ConsoleApp1
 			Console.WriteLine($"2.feladat\nAz első belépő {lista.First().id} \nAz utolsó belépő {lista.Where(x => x.irany=="ki").Last().id}");
 
 
+			// 3. feladat
+			// ezt a múltkor szótárral csináltuk, de most az id egy szám, így nincs rá nagy szükség
+			int[] kimutatás = new int[100]; // ez egy 100 elemű számtömb, egyelőre minden tagja 0.
 
+
+			int i;
+			foreach (Adat adat in lista)
+			{
+				i = adat.id;
+				kimutatás[i-1]++;    // egy sorban is lehetett volna: kimutatás[adat.id]++;
+			}
+
+			using (StreamWriter w = new StreamWriter("athaladas.txt"))
+			{
+				for (int j = 0; j < 100; j++)
+				{
+					if (kimutatás[j]!=0)
+					{
+						w.WriteLine($"{j + 1} {kimutatás[j]}");
+					}
+				}
+			}
+
+			// 4.feladat
 		}
 	}
 }
