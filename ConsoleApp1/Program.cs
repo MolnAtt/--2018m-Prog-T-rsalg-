@@ -33,7 +33,17 @@ namespace ConsoleApp1
 				}
 			}
 
-			Console.WriteLine(lista.Count);
+			// Console.WriteLine(lista.Count);
+
+			// 1. feladat: "Időrendben rögzítették", tehát biztosra vehető, hogy növekvő sorrendben vannak az adatok.
+
+			// lista.First() = lista[0]; "9 órakor a társalgó üres volt ", tehát az első adat belépő kellett legyen! 
+			// lista.Last() = lista[lista.Count-1]; // ez nem működött volna
+
+			Console.WriteLine($"2.feladat\nAz első belépő {lista.First().id} \nAz utolsó belépő {lista.Where(x => x.irany=="ki").Last().id}");
+
+
+
 		}
 	}
 }
